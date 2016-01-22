@@ -452,6 +452,9 @@ void CropDataLayer<Dtype>::Forward_cpu(
 		fwd_count_ = fwd_count_ % num_examples_;
 }
 
+#ifdef CPU_ONLY
+STUB_GPU(CropDataLayer);
+#endif
 
 INSTANTIATE_CLASS(CropDataLayer);
 REGISTER_LAYER_CLASS(CropData);

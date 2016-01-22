@@ -10,7 +10,6 @@
 #include "caffe/internal_thread.hpp"
 #include "caffe/layer.hpp"
 #include "caffe/layers/base_data_layer.hpp"
-//#include "caffe/layers/crop_data_layer.hpp"
 #include "caffe/proto/caffe.pb.h"
 
 namespace caffe {
@@ -65,10 +64,6 @@ class GenericWindowData2Layer : public BasePrefetchingDataLayer<Dtype> {
   virtual inline int ExactNumBottomBlobs() const { return 0; }
   virtual inline int ExactNumTopBlobs() const { return 2; }
 
-	//virtual void Forward_cpu(const vector<Blob<Dtype>*>& bottom,
-  //    const vector<Blob<Dtype>*>& top);
-  //virtual void Forward_gpu(const vector<Blob<Dtype>*>& bottom,
-  //    const vector<Blob<Dtype>*>& top);
  
 	protected:
   virtual unsigned int PrefetchRand(int streamNum);
@@ -131,7 +126,10 @@ class CropDataLayer : public BasePrefetchingDataLayer<Dtype> {
       const vector<Blob<Dtype>*>& top);
   virtual void Forward_gpu(const vector<Blob<Dtype>*>& bottom,
       const vector<Blob<Dtype>*>& top);
- 
+   
+  virtual void Backward_gpu(const vector<Blob<Dtype>*>& top,
+      const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom);
+   
 	protected:
   virtual void InternalThreadEntry();
   virtual unsigned int PrefetchRand();

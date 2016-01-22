@@ -10,8 +10,6 @@
 #include "caffe/internal_thread.hpp"
 #include "caffe/layer.hpp"
 #include "caffe/layers/base_data_layer.hpp"
-//#include "caffe/layers/generic_window_data_layer.hpp"
-//#include "caffe/layers/generic_window_data2_layer.hpp"
 #include "caffe/proto/caffe.pb.h"
 
 namespace caffe {

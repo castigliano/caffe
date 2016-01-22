@@ -38,6 +38,8 @@ void colchannel2im_gpu(const Dtype* data_col, const int channels,
     const int pad_h, const int pad_w, const int stride_h,
     const int stride_w, Dtype* data_im);
 
+int caffe_cpu_modulus_temp(int a, int b);
+
 }  // namespace caffe
 
 #endif  // CAFFE_UTIL_IMCHANNEL2COL_HPP_
